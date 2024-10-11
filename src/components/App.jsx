@@ -38,13 +38,18 @@ function App() {
 
                 }
                 else {
-                    const result = await axios.get(`https://ecommerce-z49z.onrender.com/product?p=${page}`);
-                    if (result.data) {
+                    try{
+                        const result = await axios.get(`https://ecommerce-z49z.onrender.com/product?p=${page}`);
+                        if (result.data) {
 
                         setdata(result.data);//product data
 
 
                     }
+                    }catch(e){
+                        console.log(e);
+                    }
+                    
 
                 }
 
@@ -87,10 +92,11 @@ function App() {
     //filter product type
     // Render a loading state if data is not yet fetched
     if (!data) {
-
+        console.log(data);
         return <div>Loading...</div>;
     }
     else {
+        
         return (
             <div name="section1" className="h-[auto] " id="part1">
                 <div className="h-[100vh] w-[99vw]  relative overflow-hidden ">
