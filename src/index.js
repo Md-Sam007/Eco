@@ -8,38 +8,39 @@ import ProductInfo from './components/product/ProductInfo';
 import AdminLogin from "./components/admin/adminLogin";
 import AdminPannel from "./components/admin/admin";
 import BuyPage from "./components/buyPage/buyPage"
+import { BrowserRouter } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
-    path:"/",
-    element:<App/>,
-   
+    path: "/",
+    element: <App />,
   },
   {
-    path:"/Login",
-    element:<Login/>
+    path: "/Login",
+    element: <Login />
   },
   {
-    path:"/product",
-    element:<ProductInfo/>
+    path: "/product",
+    element: <ProductInfo />
   },
   {
-    path:"/admin",
-    element:<AdminLogin/>
+    path: "/admin",
+    element: <AdminLogin />
+  },
+  {
+    path: "/adminPannel",
+    element: <AdminPannel />
+  },
+  {
+    path: "/Buy",
+    element: <BuyPage />
   }
-  ,{
-    path:"/adminPannel",
-    element:<AdminPannel/>
-  }
-  ,{
-    path:"/Buy",
-    element:<BuyPage/>
-  }
-])
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <RouterProvider router={router}/>
+  <BrowserRouter basename="/<repository-name>">
+    <RouterProvider router={router} />
+  </BrowserRouter>
 );
-
 
