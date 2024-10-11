@@ -8,6 +8,8 @@ import ProductInfo from './components/product/ProductInfo';
 import AdminLogin from "./components/admin/adminLogin";
 import AdminPannel from "./components/admin/admin";
 import BuyPage from "./components/buyPage/buyPage"
+import { BrowserRouter } from 'react-router-dom';
+
 
 const router = createBrowserRouter([
   {
@@ -39,7 +41,9 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <RouterProvider router={router}/>
+  <BrowserRouter basename="Eco-Front">
+    <RouterProvider router={router}/>
+  </BrowserRouter>
 );
 
 
